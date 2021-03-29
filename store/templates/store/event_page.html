@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'store/homepage.html' %}
+{% load static %}
+<head>
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/homepage.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap-4.4.1-dist/css/bootstrap.min.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+{% block content %}
+ <div class="container-fluid my-5">
+     <h3 class="ml-5 pb-3" style="text-align:center"> Articles : </h3>
+      <p class="ml-5 pb-3" style="text-align:center">
+          Read some interesting articles about wine, wine makers, recipes, information ect. Some articles are accompanied with videos.<br>
+        <strong>THANK YOU !</strong><br></p>
+    <div class="row mx-5 ">
+        {% for articles in article %}
+        <div class="card col-md-3 mx-5 card-border " style="height: auto; border:0;">
+            <img class="card-img-top" src="{{articles.imageURL}}" style="height: 200px;" alt="Card image cap">
+            <div class="overlay-article-content">
+                <div class="text-article">
+                    <h6>{{articles.subtitle}}</h6>
+                   <a href="../one_article_page/{{articles.id}}" class="btn btn-card-article rounded-pill">Read More</a>
+                </div>
+            </div>
+            <div class="card-body card-article">
+                <h4>{{articles.title}}</h4>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}
+</body>
+</html>

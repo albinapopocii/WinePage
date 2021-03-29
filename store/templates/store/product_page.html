@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+{% extends 'store/homepage.html' %}
+{% load static %}
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/homepage.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap-4.4.1-dist/css/bootstrap.min.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+    .black-text {
+      color: #000;
+    }
+    .page-link {
+      color: #660000;
+      border: 1px solid white;
+      font-weight: bold;
+    }
+    .page-link:hover {
+      color: #000;
+      border: 1px solid #fff;
+      background-color: #ff9966;
+    }
+    .card-product{
+      background-color:#fff ;
+      border-right: 1px solid #660000;
+      border-bottom: 1px solid #660000;
+      border-left: none;
+      border-top: none ;
+      box-shadow: 3px 3px 5px #661a00; 
+    }
+    </style>
+</head>
+<body>
+{% block content %}
+    <!-- Card Section -->
+<h3 class="ml-5 py-3" style="text-align:center"> Products : </h3>
+        <div class="row mx-3">
+            {% for products in product %}
+            <div class=" my-2 col-lg-4 ">
+                <div class="card card-product mb-2">
+                    <div class="card-body text-center ">
+                        <img src="{{products.imageURL}}" alt="" class="image-product">
+                        <h6 class="mt-5"><strong>{{products.name}}</strong></h6>
+                        <br>
+                        <h5 style="display: inline-block; float:left;" class="mt-1 pl-3">Price :
+                            ${{products.price|floatformat:2}}</h5> <br> <br>
+                        <button class="btn card-button rounded-pill active" data-product="{{products.id}}"
+                                data-action="add">Add to card
+                        </button>
+                        <a href="../one_product_page/{{products.id}}" class="btn card-button rounded-pill active"
+                           role="button" aria-pressed="true">More Details</a>
+
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+<hr style="border: 1px solid #ab383e">
+
+<!-- KARTAT E ARTIKUJVE -->
+<div class="container-fluid my-5">
+    <h3 class="ml-5"> You may also like : </h3>
+    <div class="row mx-5 pt-5">
+        {% for articles in article|slice:":3" %}
+        <div class="card col-md-3 mx-5 card-border " style="height: auto; border:0;">
+            <img class="card-img-top" src="{{articles.imageURL}}" style="height: 200px;" alt="Card image cap">
+            <div class="overlay-article-content">
+                <div class="text-article">
+                    <h6>{{articles.subtitle}}</h6>
+                    <a href="../one_article_page/{{articles.id}}" class="btn btn-card-article rounded-pill">Read
+                            More</a>
+                </div>
+            </div>
+            <div class="card-body card-article">
+                <h4>{{articles.title}}</h4>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<br> <br>
+{% endblock content %}
+</body>
+</html>

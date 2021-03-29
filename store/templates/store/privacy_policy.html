@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'store/homepage.html' %}
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/homepage.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap-4.4.1-dist/css/bootstrap.min.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+{% block content %}
+<div class="container-fluid my-5" style="text-align:center">
+    <h1>Privacy Policy:</h1>
+    <p>Effective Date: December 5, 2020
+        Retail Services & Systems, Inc. and affiliated companies doing business under Wineaholic & More brands and
+        associated brands ("Wineaholic," "we," "our," or "us") know that you care how information about you is used and
+        shared, and we appreciate your trust that we will do so carefully and sensibly. This Privacy Policy lets you
+        know what information we collect, how we may share that information, and your choices regarding the sharing of
+        your information.
+        <br>
+        You are subject to our Terms & Conditions, which govern your access to and use of the Wineaholic & More Sites
+    </p>
+    <h3>Contact us : </h3>
+    <h5>
+        <strong><em>Phone :</em></strong> 052123456<br>
+        <strong><em>Fax : </em></strong>052123456 <br>
+        <strong><em>Email : </em></strong>totalwine@gmail.com
+    </h5><br>
+    <h3> Our Privacy Commitment: </h3>
+    <p>We value the relationship we have with our customers and prospective customers, and are committed to protecting
+        the confidentiality, accuracy and integrity of your Personal Information, meaning information about you that is not
+        publicly available. We understand the importance of keeping your information secure.
+    </p>
+</div>
+{% endblock content %}
+</body>
+</html>

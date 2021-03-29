@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'store/homepage.html' %}
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="stylesheet" type="text/css" href="{% static 'css/homepage.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap-4.4.1-dist/css/bootstrap.min.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+{% block content %}
+<div class="container-fluid my-5" style="text-align:center">
+    <h1>Contact Us : </h1>
+    <h1><i class="fa fa-phone" aria-hidden="true"></i></h1>
+    <h5><strong><em>Phone :</em></strong> 052123456</h5><br><br>
+    <h1><i class="fa fa-fax" aria-hidden="true"></i></h1>
+    <h5><strong><em>Fax : </em></strong>052123456 </h5><br><br>
+    <h1><i class="fa fa-envelope-o" aria-hidden="true"></i></h1>
+    <h5><strong><em>Email : </em></strong>wineaholic@gmail.com</h5><br> <br> <br>
+    <h5><strong><em>Thank you !</em></strong></h5>
+</div>
+{% endblock content %}
+</body>
+</html>

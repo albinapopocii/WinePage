@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% extends 'store/homepage.html' %}
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/homepage.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap-4.4.1-dist/css/bootstrap.min.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+{% block content %}
+<!-- Articles -->
+<div class="container-fluid pt-5 m-0">
+    <h3 class="ml-5 pb-3" style="text-align:center"> Events : </h3>
+    <p class="ml-5 pb-3" style="text-align:center"> Join us in our events. Taste the wine and give your opinions with
+        other
+        guests. Share your knowledge about wine.We will be honored if u participate in our wine events. It will be an
+        unforgettable day. <br>
+        <strong>THANK YOU !</strong><br> *Prices are paid when you arrive at the event.</p>
+    <div class="row ">
+        {% for events in event %}
+        <div class="col-7 event-image-section">
+            <img src="{{events.imageURL}}" alt="" class="event-image img-responsive">
+            <div class="middle-div-article">
+                <div class="event-description">{{events.title}} <br> {{events.subtitle}} <br> {{events.date}}</div>
+            </div>
+        </div>
+        <div class="col-4 m-5">
+            <a href="../one_event_page/{{events.id}}" class="btn btn-lg card-button rounded-pill active m-5"
+               role="button" aria-pressed="true"> Read More Information</a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<br>
+<br>
+{% endblock content %}
+</body>
+</html>

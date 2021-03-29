@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'store/homepage.html' %}
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="homepage.css">
+    <link rel="stylesheet" href="bootstrap-4.4.1-dist/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+{% block content %}
+<div class="container-fluid my-5" style="text-align:center">
+    <h1>About Us:</h1>
+    <p>We're passionate about wine, and know many of our customers feel the same way. So we are committed to offering
+        the nation's best wine selection, with an emphasis on fine wines. Our typical store carries more than 8,000
+        different wines from every wine-producing region in the world. The typical Wineaholic & More also carries more
+        than 2,500 beers, from America‘s most popular brands to hard-to-find microbrews and imports, and more than 3,000
+        different spirits in every style and price range.
+        <br>
+        We're also committed to having the lowest prices on wine, spirits and beer every day. Our tremendous buying
+        power and special relationships with producers, importers and wholesalers bring us considerable savings, which
+        we pass on to our customers.<br>
+        It's our Team Members who make the Wineaholic & More shopping experience so special. Wineaholic & More employs
+        more than 4,000 dedicated men and women, including 600 wine service team members and 50 of our most
+        knowledgeable wine experts, the Wineaholic Professionals. All of our wine team members participate in extensive
+        training programs, weekly team wine tastings and monthly wine-producer seminars. Many travel to winemaking
+        regions to meet our producers and learn about their wines firsthand.
+    </p>
+    <img class="" src="{% static 'images/Wineaholic.png' %}" style="height: 400px; width: 400px;"
+         alt="Card image cap"> <br>
+    <p>The goal is to ensure each customer has an exceptional wine-buying experience. Do you need an expert
+        recommendation for a wine? Or do you know what you want, and just need directions to the right aisle? Whether
+        you are new to the world of wine or a great wine enthusiast, we want all our customers to be confident and
+        comfortable exploring our stores and selecting the wines they prefer. That's the Wineaholic Experience.
+    </p>
+
+</div>
+{% endblock content %}
+</body>
+</html>

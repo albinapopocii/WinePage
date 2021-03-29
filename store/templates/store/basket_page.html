@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'store/homepage.html' %}
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/homepage.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap-4.4.1-dist/css/bootstrap.min.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+
+
+    </style>
+</head>
+
+<body>
+<!-- NAVIGATION BAR-->
+<!--<nav class="navbar navbar-expand-md header-bg-color p-0  sticky-top " role="navigation">-->
+<!--    <div class="navbar-header w-100 ">-->
+<!--        <div class="container-fluid justify-content-center before-nav" id="content-mobile">-->
+<!--            &lt;!&ndash; <img src="winelogo1.png" class="logo-hiden" alt="logo" >-->
+<!--                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse">-->
+<!--                      <span class="navbar-toggler-icon toggler-style"></span>-->
+<!--                  </button> &ndash;&gt;-->
+<!--        </div>-->
+<!--        <div class="collapse navbar-collapse flex-column m-0 p-0" id="navbarCollapse">-->
+<!--            <div class="navbar-brand nav-image">-->
+<!--                <a href="homepage.html">-->
+<!--                    <img src="winelogo1.png" class="logo" alt="logo" id="header-logo" style="width:auto; height: auto;">-->
+<!--                </a>-->
+<!--            </div>-->
+<!--            <ul class="nav navbar-nav w-100 nav-fill mobile-nav">-->
+<!--                <li class="nav-item active">-->
+<!--                    <a class="nav-link" href="homepage.html">HOME</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item dropdown">-->
+<!--                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" aria-haspopup="true"-->
+<!--                       aria-expanded="false"> WINE </a>-->
+<!--                    <div class="dropdown-menu m-0 topnav-centered" aria-labelledby="navbarDropdown">-->
+<!--                        <a class="dropdown-item" href="#">RED WINE</a>-->
+<!--                        <a class="dropdown-item" href="#">WHITE & ROSE WINE</a>-->
+<!--                        <a class="dropdown-item" href="#">CHAMPANGNE & SPARKLING</a>-->
+<!--                        <div class="dropdown-divider"></div>-->
+<!--                        <a class="dropdown-item" href="#">ALL WINE</a>-->
+<!--                    </div>-->
+<!--                </li>-->
+<!--                <li class="nav-item dropdown ">-->
+<!--                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="navbarDropdown"-->
+<!--                       role="button"-->
+<!--                       aria-haspopup="true" aria-expanded="false"> SPRITZ </a>-->
+<!--                    <ul class="dropdown-menu m-0 topnav-centered" aria-labelledby="navbarDropdown">-->
+<!--                        <li><a class="dropdown-item" href="#"> Spritz Type </a>-->
+<!--                            <ul class="submenu dropdown-menu ">-->
+<!--                                <li><a class="dropdown-item" href=""> Vodka </a></li>-->
+<!--                                <li><a class="dropdown-item" href=""> Scotch </a></li>-->
+<!--                                <li><a class="dropdown-item" href=""> Whiskey </a></li>-->
+<!--                                <li><a class="dropdown-item" href=""> Rum </a></li>-->
+<!--                                <li><a class="dropdown-item" href="">Teqilua </a></li>-->
+<!--                                <li><a class="dropdown-item" href=""> Gin </a></li>-->
+<!--                                <div class="dropdown-divider"></div>-->
+<!--                                <li><a class="dropdown-item" href=""> All Spritz </a></li>-->
+<!--                            </ul>-->
+<!--                        </li>-->
+<!--                        <li><a class="dropdown-item" href="#"> Coctails </a>-->
+<!--                            <ul class="submenu dropdown-menu">-->
+<!--                                <li><a class="dropdown-item" href=""> Month Cocktail </a></li>-->
+<!--                                <li><a class="dropdown-item" href="">Teqilua Based </a></li>-->
+<!--                                <li><a class="dropdown-item" href=""> Vodka Based </a></li>-->
+<!--                                <li><a class="dropdown-item" href=""> Gin Based </a></li>-->
+<!--                                <div class="dropdown-divider"></div>-->
+<!--                                <li><a class="dropdown-item" href=""> All Coctails </a></li>-->
+<!--                            </ul>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                </li>-->
+<!--                <li class="nav-item ">-->
+<!--                    <a href="#" class="nav-link pr-0 mr-0 "><i class="fa fa-sign-in pr-2"-->
+<!--                                                               aria-hidden="true"></i>LogIn/SignUp</a>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</nav>-->
+{% block content %}
+<!-- Products -->
+<div class="container-fluid pt-5 m-0">
+    <div class="row mx-1">
+        <div class="col-lg-12 ">
+            <!--            <div class="row ml-4 mb-2 p-0" style="text-align: center; font-size: 20px;">-->
+            <!--                <div class="col-lg-2 footer-bg-color pt-2 border-right border-warning">-->
+            <!--                    <p> IMAZHI </p>-->
+            <!--                </div>-->
+            <!--                <div class="col-lg-3 footer-bg-color pt-2 border-right border-warning">-->
+            <!--                    <p>DETAJET</p>-->
+            <!--                </div>-->
+            <!--                <div class="col-lg-4 footer-bg-color pt-2 border-right border-warning">-->
+            <!--                    <p>SASIA</p>-->
+            <!--                </div>-->
+            <!--                <div class="col-lg-3 footer-bg-color pt-2 ">-->
+            <!--                </div>-->
+            <!--            </div>-->
+            <div class="box-element">
+                <div class="cart-row">
+                    <div style="flex:2"></div>
+                    <div style="flex:2"><strong>Item</strong></div>
+                    <div style="flex:1"><strong>Price</strong></div>
+                    <div style="flex:1"><strong>Quantity</strong></div>
+                    <div style="flex:1"><strong>Total</strong></div>
+                </div>
+
+                {% for item in items %}
+                <div class="cart-row">
+                    <div style="flex:2"><img class="row-image ml-5" style="width:100px; height:100px"
+                                             src="{{item.product.imageURL}}"></div>
+                    <div style="flex:2" class="mt-4">{{item.product.name}}</div>
+                    <div style="flex:1" class="mt-4"><p>${{item.product.price|floatformat:2}}</p></div>
+                    <div style="flex:1">
+                        <p class="quantity" style="margin-top:-20px">{{item.quantity}}</p>
+                        <div class="quantity mt-3">
+                            <i class="fa fa-caret-up chg-quantity card-button p-0 m-0" data-action="add"
+                               data-product="{{item.product.id}}" aria-hidden="true"> </i>
+                            <i class="fa fa-caret-down chg-quantity card-button p-0 m-0" data-action="remove"
+                               data-product="{{item.product.id}}" aria-hidden="true"> </i>
+                        </div>
+                    </div>
+                    <div style="flex:1" class="mt-4"><p>${{item.get_total|floatformat:2}}</p></div>
+                </div>
+                {% endfor %}
+                <div class="cart-row justify-content-center">
+                    <button type="submit" value="Submit" class="btn rounded submit-button-basket" data-toggle="modal"
+                            data-target="#checkOut" id="submit_order">
+                        Submit
+                        <i class="fa fa-shopping-cart" aria-hidden="true" style="font-size:22px"></i>
+                    </button>
+
+                    <div class="modal fade" id="checkOut" tabindex="-1" role="dialog"
+                         aria-labelledby="checkOut_modal" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="checkOut_modal">CheckOut</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="input-group ml-5">
+                                        <form action="#" id="form">
+                                            <label for="firstName">First Name:</label>
+                                            <input type="text" id="firstName" name="firstName" required>
+                                            <br>
+                                            <label for="lastName">Last Name:</label>
+                                            <input type="text" id="lastName" name="lastName" required>
+                                            <br>
+                                            <label for="phoneNumber">
+                                                <i class="fa fa-mobile" aria-hidden="true" style="font-size:22px"></i>
+                                                Phone Number:
+                                            </label>
+                                            <input type="tel" id="phoneNumber" name="phoneNumber"
+                                                   placeholder="06*-***-****"
+                                                   pattern="06[7-9]{1}[0-9]{7}" required>
+                                            <br>
+                                            <label for="address">
+                                                <i class="fa fa-map-marker" aria-hidden="true"
+                                                   style="font-size:22px"></i>
+                                                Address:
+                                            </label>
+                                            <input type="text" id="address" name="address" placeholder="" required>
+                                            <br>
+                                             <label for="city">
+                                                <i class="fa fa-map-marker" aria-hidden="true"
+                                                   style="font-size:22px"></i>
+                                                City:
+                                            </label>
+                                            <input type="text" id="city" name="city" placeholder="" required>
+                                            <br> <br>
+                                            <p class="font-weight-bold font-italic">Total Quantity :
+                                                {{order.get_cart_items}} <br>
+                                                Total Price :
+                                                ${{order.get_cart_total|floatformat:2}}</p>
+                                            <button type="submit" value="Submit"
+                                                    class="btn rounded submit-button-basket " id="submit-total-order">
+                                                Submit
+                                                <i class="fa fa-shopping-cart" aria-hidden="true"
+                                                   style="font-size:22px"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="../product_page" class="btn btn-outline-dark ml-5">Continue Shopping</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br>
+<br>
+<script type="text/javascript">
+    var delivery = '{{order.delivery}}'
+    var total = '{{order.get_cart_total}}'
+    if(delivery == 'False'){
+        document.getElementById('checkOut').innerHTML=''
+    }
+    var form = document.getElementById('form')
+    form.addEventListener('submit', function(e){
+        e.preventDefault()
+        document.getElementById('submit-total-order').classList.add('hidden')
+    })
+
+    document.getElementById('submit-total-order').addEventListener('click', function(e){
+        submitFormData()
+    })
+
+    function submitFormData(){
+        var userFormData={
+            'firstName': null,
+            'lastName': null,
+            'total': total,
+        }
+        var deliveryInfo={
+            'phoneNumber': null,
+            'address': null,
+            'city':null,
+        }
+
+        if(delivery != 'False'){
+            deliveryInfo.address = form.address.value
+            deliveryInfo.phoneNumber = form.phoneNumber.value
+            deliveryInfo.city = form.city.value
+        }
+
+        if(user != 'AnonymousUser'){
+            userFormData.firstName = form.firstName.value
+            userFormData.lastName = form.lastName.value
+        }
+        var url = '/process_order/'
+        fetch(url, {
+        method: 'POST',
+        headers:{
+            'Content-Type':'application/json',
+            'X-CSRFToken':csrftoken,
+        },
+        body:JSON.stringify({'form': userFormData, 'delivery': deliveryInfo})
+        })
+         .then((response) =>{
+            return response.json()
+         })
+         .then((data) =>{
+            alert('ORDER WAS COMPLETED');
+            location.href = "{% url 'store/product_page' %}"
+         })
+    }
+</script>
+{% endblock content %}

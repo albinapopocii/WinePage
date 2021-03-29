@@ -1,0 +1,265 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/homepage.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap-4.4.1-dist/css/bootstrap.min.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript">
+        var user = '{{request.user}}'
+            function getToken(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+        var csrftoken = getToken('csrftoken');
+    </script>
+    <style>
+    .fa-shopping-basket{
+        color:#fff !important;
+        font-size: 25px !important;
+    }
+    </style>
+</head>
+<body>
+<!-- NAVIGATION BAR-->
+<div class="container-fluid px-0">
+    <nav class="navbar navbar-expand-md header-bg-color p-0 sticky-top" role="navigation">
+        <div class="navbar-header w-100 ">
+            <div class="collapse navbar-collapse flex-column m-0 p-0" id="navbarCollapse">
+                <div class="navbar-brand nav-image">
+                    <a href="../">
+                        <img src="{% static 'images/wine_logo.png' %}" class="logo" alt="logo" id="header-logo"
+                             style="width:200px; height: 100px;">
+                    </a>
+                </div>
+                <div class="row w-100">
+                    <div class="col-lg-12 m-0 p-0">
+                        <ul class="nav navbar-nav w-100 nav-fill mobile-nav">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="../">HOME</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button"
+                                   aria-haspopup="true" aria-expanded="false"> WINE </a>
+                                <div class="dropdown-menu m-0 topnav-centered" aria-labelledby="navbarDropdown1">
+                                    <a class="dropdown-item" href="../category_product_page/Red%20Wine">RED WINE</a>
+                                    <a class="dropdown-item" href="../category_product_page/White%20Wine">WHITE & ROSE
+                                        WINE</a>
+                                    <a class="dropdown-item" href="../category_product_page/Champagne%20Sparkling">CHAMPANGNE
+                                        & SPARKLING</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="{% url 'store/product_page' %}">ALL PRODUCTS</a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown ">
+                                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="navbarDropdown"
+                                   role="button" aria-haspopup="true" aria-expanded="false"> SPRITZ </a>
+                                <ul class="dropdown-menu m-0 topnav-centered" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="../category_product_page/Vodka">Vodka </a></li>
+                                    <li><a class="dropdown-item" href="../category_product_page/Scotch"> Scotch </a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="../category_product_page/Rum"> Rum </a></li>
+                                    <div class="dropdown-divider"></div>
+                                    <li><a class="dropdown-item" href="{% url 'store/product_page' %}"> ALL PRODUCTS</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="../event_page"> Articles </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../blog_page"> Events </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'store/basket_page' %}">
+                                    <i class="fa fa-shopping-basket pr-2" aria-hidden="true"></i>{{cartItems}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+{% block content%}
+<div class="container-fluid px-0">
+    <!--CAROUSEL && SEARCH BAR -->
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="d-block w-100 " src="{% static 'images/wine_photo_carousel_1.jpg' %}" alt="First slide">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="{% static 'images/wine_photo_carousel_2.jpg' %}" alt="Second slide">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100 " src="{% static 'images/wine_photo_carousel_3.jpg' %}" alt="Third slide">
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <!-- PRODUKTET -->
+    <div class="container-fluid pt-5">
+        <h3 class="ml-5"><em> You may like our wines: </em></h3>
+        <div class="row mx-5 pt-5">
+            {% for product in products|slice:":8" %}
+            <div class="col-2 card-container mb-2 mx-5">
+                <div class="card-flip ">
+                    <div class="card front card-border p-1">
+                        <img src="{{product.imageURL}}"
+                             class="card-img-top rounded-circle product-image-border"
+                             alt="...">
+                        <p style="text-align : center"> {{product.name}} </p>
+                        <p style="text-align : right"><strong> ${{product.price|floatformat:2}}</strong></p>
+                    </div>
+                    <div class=" card back card-border p-1">
+                        <p class="card-text"><br> {{product.little_description}}<br><strong> ABV :
+                            {{product.alcohol}}% </strong><br></p>
+                        <a href="../one_product_page/{{product.id}}" class="btn card-button rounded-pill active"
+                           role="button" aria-pressed="true">Read More</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- EVENTET (VIRTUAL TASTING) -->
+    <div class="container-fluid pt-5 m-0">
+        <h3 class="ml-5 p-2"><em> Join us in our events : </em></h3>
+        <div class="row ">
+            {% for events in event|slice:":1" %}
+            <div class="col-7 event-image-section">
+                <img src="{{events.imageURL}}" alt="" class="event-image img-responsive">
+                <div class="middle-div-article">
+                    <div class="event-description">{{events.title}} <br> {{events.subtitle}} <br> {{events.date}}</div>
+                </div>
+            </div>
+
+            <div class="col-4 m-5">
+                <a href="../one_event_page/{{events.id}}" class="btn btn-lg card-button rounded-pill active m-5"
+                   role="button" aria-pressed="true"> Get more information </a>
+            </div>
+        </div>
+        {% endfor %}
+        {% for events in event|slice:"1:2" %}
+        <div class="row  ml-5">
+            <div class="col-4 m-5 ">
+                <a href="../one_event_page/{{events.id}}" class="btn btn-lg card-button rounded-pill active m-5"
+                   role="button" aria-pressed="true">Get more information</a>
+            </div>
+            <div class="col-7 event-image-section">
+                <img src="{{events.imageURL}}" alt="" class="event-image img-responsive">
+                <div class="middle-div-article">
+                    <div class="event-description">{{events.title}} <br> {{events.subtitle}} <br> {{events.date}}</div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- KARTAT E ARTIKUJVE -->
+    <div class="container-fluid my-5">
+        <h3 class="ml-5 p-2"><em> Read some interesting articles : </em></h3>
+        <div class="row mx-5 ">
+            {% for articles in article|slice:":3" %}
+            <div class="card col-md-3 mx-5 card-border " style="height: auto; border:0;">
+                <img class="card-img-top" src="{{articles.imageURL}}" style="height: 200px;"
+                     alt="Card image cap">
+                <div class="overlay-article-content">
+                    <div class="text-article">
+                        <h6>{{articles.subtitle}}</h6>
+                        <a href="../one_article_page/{{articles.id}}" class="btn btn-card-article rounded-pill">Read
+                            More</a>
+                    </div>
+                </div>
+                <div class="card-body card-article">
+                    <h4>{{articles.title}}</h4>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+{% endblock content %}
+<!-- FOOTER -->
+<footer class="page-footer font-small footer-bg-color pt-4">
+    <div class="container text-center text-md-left">
+        <div class="row">
+            <div class="col-md-4 mx-auto">
+                <h5 class="font-weight-bold text-uppercase mt-3 mb-4">About us :</h5>
+                <img class="" src="{% static 'images/wine_logo.png' %}" style="height: 150px; width: 250px;"
+                     alt="Card image cap">
+            </div>
+            <hr class="clearfix w-100 d-md-none">
+            <div class="col-md-3 mx-auto">
+                <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Contacts : </h5>
+                <ul class="list-unstyled">
+                    <li>Telephone : 052123456</li>
+                    <li>Fax : 052123456</li>
+                    <li>Email : wineaholic@gmail.com</li>
+                </ul>
+            </div>
+            <hr class="clearfix w-100 d-md-none">
+            <div class="col-md-3 mx-auto">
+                <h5 class="font-weight-bold text-uppercase mt-3 mb-4">TERMS: </h5>
+                <ul class="list-unstyled">
+                    <li><a href="../about_us" style="color:#fff">About Us</a></li>
+                    <li><a href="../privacy_policy" style="color:#fff">Privacy Policy</a></li>
+                    <li><a href="../contact_us" style="color:#fff">Contact Us</a></li>
+                </ul>
+            </div>
+            <hr class="clearfix w-100 d-md-none">
+        </div>
+    </div>
+    <hr>
+    <ul class="list-inline text-center ">
+        <li class="list-inline-item ">
+            <a href="" class="fa fa-facebook rounded-circle fa-social"></a>
+        </li>
+        <li class="list-inline-item">
+            <a href="" class="fa fa-twitter rounded-circle fa-social"></a>
+        </li>
+        <li class="list-inline-item">
+            <a href="" class="fa fa-google rounded-circle fa-social"></a>
+        </li>
+        <li class="list-inline-item">
+            <a href="" class="fa fa-instagram rounded-circle fa-social"></a>
+        </li>
+        <li class="list-inline-item">
+            <a href="" class="fa fa-pinterest rounded-circle fa-social"></a>
+        </li>
+        <li class="list-inline-item">
+            <a href="" class="fa fa-linkedin rounded-circle fa-social"></a>
+        </li>
+    </ul>
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:<a href="../"> wineaholic.com</a></div>
+</footer>
+<script type="text/javascript" src="{% static 'js/javascript.js' %}"></script>
+</body>
+</html>

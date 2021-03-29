@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'store/homepage.html' %}
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/homepage.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap-4.4.1-dist/css/bootstrap.min.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+{% block content %}
+    <div class="container-fluid pt-5">
+        <div class="row ml-5 ">
+            <div class="col-lg-4 border border-0 mr-2 p-4">
+                <img src="{{product.imageURL}}" alt="" class="image_oneProductPage">
+            </div>
+            <div class="col-lg-7 border border-0 p-4">
+                <section class="product_details">
+                    <h3>{{product.name}}</h3>
+                    <h5>${{product.price|floatformat:2}}</h5>
+                    <strong><em> Product details :</em></strong>
+                        <div class="row m-2" style="text-transform:capitalize;">
+                            <div class="col-lg-6 border-right border-dark" style="text-align: right;">
+                                TYPE <br><br>
+                                ORIGIN <br><br>
+                                DIMENSIONS <br><br>
+                                ABV <br><br>
+                                TASTE <br>
+                            </div>
+                            <div class="col-lg-6" style="text-align: left; ">
+                                {{product.type}}<br><br>
+                                {{product.origin}}<br><br>
+                                {{product.dimension}}L<br><br>
+                                {{product.alcohol}}%<br><br>
+                                {{product.taste}}<br>
+                            </div>
+
+                        </div>
+                </section>
+                <section class="product-buttons mt-5">
+                   <button class="btn card-button rounded-pill active" data-product="{{product.id}}"
+                                data-action="add">Add to card</button>
+                </section>
+                 <p>*Adjust the quantity in the basket.</p> <br>
+            </div>
+        </div>
+    </div>
+   <!-- You may also like -->
+    <div class="container-fluid pt-5">
+        <h3 class="ml-5"> You may also like: </h3>
+        <div class="row mx-5 pt-5">
+            {% for product in products|slice:":4" %}
+            <div class="col-2 card-container mx-5">
+                <div class="card-flip ">
+                    <div class="card front card-border p-1">
+                        <img src="{{product.imageURL}}" class="card-img-top rounded-circle product-image-border"
+                            alt="...">
+                        <p style="text-align : center"> {{product.name}} </p>
+                        <p style="text-align : right"><strong> ${{product.price|floatformat:2}}</strong></p>
+                    </div>
+                    <div class=" card back card-border p-1">
+                        <p class="card-text"><br> {{product.little_description}}<br><strong> ABV :
+                            {{product.alcohol}}% </strong><br></p>
+                        <a href="../one_product_page/{{product.id}}" class="btn card-button rounded-pill active"
+                           role="button" aria-pressed="true">Read More</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row m-5" style="color:#000 !important;">
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a class="nav-link active" id="nav-detail-tab" data-toggle="tab" href="#nav-detail" role="tab"
+                        aria-controls="nav-detail" aria-selected="true" style="color:#000 !important;" >Details</a>
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-detail" role="tabpanel" aria-labelledby="nav-detail-tab">
+                    <br>
+                    <h4><em>MORE DETAILS :</em>  </h4>
+                    {{product.little_description}} <br> {{product.description}} <br> <br>
+                    <strong> <em>TYPE : </em></strong> {{product.type}}<br>
+                    <strong> <em>ORIGIN : </em></strong> {{product.origin}}<br>
+                    <strong> <em>DIMENSIONS :</em></strong> {{product.dimension}}L <br>
+                    <strong> <em>ABV:</em></strong> {{product.alcohol}}% <br>
+                    <strong> <em>TASTE :</em></strong> {{product.taste}}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+    <br>
+    <br>
+<script type="text/javascript">
+
+</script>
+</body>
+</html>

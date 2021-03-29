@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'store/homepage.html' %}
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/homepage.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap-4.4.1-dist/css/bootstrap.min.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+   {% block content %}
+    <div class="container-fluid pt-5">
+        <div class="row ml-5 mb-2">
+            <div class="col-lg-4 mr-2 p-4">
+                <img src="{{article.imageURL}}" alt="" class="image_oneProductPage">
+            </div>
+            <div class="col-lg-7 p-4">
+                <section class="product_details">
+                    <h2>{{article.title}}</h2>
+                    <h4>{{article.subtitle}}</h4>
+                    <p>{{article.description}}</p>
+                    <p>{{article.information}}</p>
+                    <br>
+                     <a href="{{article.link}}" class="btn card-button rounded-pill active"
+                           role="button" aria-pressed="true">Watch Video Here/Go Back </a>
+                </section>
+            </div>
+        </div>
+    </div>
+<hr style="border: 1px solid #ab383e">
+    <!-- You may also like -->
+    <div class="container-fluid pt-5">
+        <h3 class="ml-5"> You may also like </h3>
+        <div class="row mx-5 pt-5">
+            {% for product in products|slice:":4" %}
+            <div class="col-2 card-container mx-5">
+                <div class="card-flip ">
+                    <div class="card front card-border p-1">
+                        <img src="{{product.imageURL}}" class="card-img-top rounded-circle product-image-border"
+                            alt="...">
+                        <p style="text-align : center"> {{product.name}} </p>
+                        <p style="text-align : right"><strong> ${{product.price|floatformat:2}}</strong></p>
+                    </div>
+                    <div class=" card back card-border p-1">
+                        <p class="card-text"><br> {{product.little_description}}<br><strong> ABV :
+                            {{product.alcohol}}% </strong><br></p>
+                        <a href="../one_product_page/{{product.id}}" class="btn card-button rounded-pill active"
+                           role="button" aria-pressed="true">Read More</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <br>
+    <br>
+{% endblock content %}
+</body>
+</html>
